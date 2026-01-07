@@ -1,0 +1,228 @@
+/* ========================================
+   GLOBAL RESET
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   HEADER - FULL WIDTH (100VW)
+   ======================================== */
+
+.header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(31, 60, 136, 0.05);
+  width: 100vw;
+  /* Future: Will remain full width even when sidebar is added */
+}
+
+.header-content {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 65px;
+  gap: 1rem;
+}
+
+/* ========================================
+   MENU TOGGLE BUTTON
+   Future: Will be connected to sidebar toggle
+   ======================================== */
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background-color: #F4F6F9;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2.5px;
+  background-color: #1F3C88;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover .hamburger-line {
+  background-color: #3A5BA0;
+}
+
+/* ========================================
+   LOGO SECTION
+   ======================================== */
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, #1F3C88 0%, #3A5BA0 100%);
+  color: #FFFFFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 3px 8px rgba(31, 60, 136, 0.2);
+}
+
+.logo-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1E293B;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ========================================
+   HEADER ACTIONS
+   ======================================== */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #64748B;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background-color: #F4F6F9;
+  color: #1F3C88;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #F4F6F9;
+}
+
+.user-profile:hover {
+  background-color: #E2E8F0;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3A5BA0 0%, #4FD1C5 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(31, 60, 136, 0.15);
+}
+
+.user-name {
+  color: #1E293B;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #1F3C88 0%, #3A5BA0 100%);
+  color: #FFFFFF;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(31, 60, 136, 0.2);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(31, 60, 136, 0.3);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 1rem;
+    height: 60px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .user-profile {
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    display: none;
+  }
+}
