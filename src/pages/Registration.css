@@ -1,0 +1,269 @@
+/* ===================================
+   REGISTRATION PAGE STYLES
+   Component: RegistrationPage
+   Following TMS Color Scheme
+   =================================== */
+
+/* Page Container */
+.registration-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F4F6F9;
+  padding: 2rem 1rem;
+}
+
+/* Main Registration Container */
+.registration-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(31, 60, 136, 0.08), 
+              0 1px 3px rgba(31, 60, 136, 0.06);
+  padding: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registration-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(31, 60, 136, 0.12), 
+              0 2px 4px rgba(31, 60, 136, 0.08);
+}
+
+/* Header Section */
+.registration-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.registration-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1F3C88;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.registration-subtitle {
+  font-size: 0.95rem;
+  color: #64748B;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Form Styles */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Form Group */
+.form-group {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Form Label - Left Side */
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1E293B;
+  padding-top: 0.75rem;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* Input Wrapper */
+.form-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Form Input */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #1E293B;
+  background-color: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-input::placeholder {
+  color: #94A3B8;
+  font-weight: 400;
+}
+
+.form-input:hover {
+  border-color: #CBD5E1;
+}
+
+.form-input:focus {
+  border-color: #3A5BA0;
+  background-color: #FAFBFC;
+  box-shadow: 0 0 0 3px rgba(58, 91, 160, 0.1);
+}
+
+/* Input Error State */
+.form-input.input-error {
+  border-color: #DC2626;
+}
+
+.form-input.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Error Message */
+.error-message {
+  font-size: 0.85rem;
+  color: #DC2626;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.error-message::before {
+  content: '⚠';
+  font-size: 0.9rem;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #1F3C88 0%, #3A5BA0 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 4px rgba(31, 60, 136, 0.2);
+  letter-spacing: 0.3px;
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #1a3270 0%, #2e4880 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(31, 60, 136, 0.3);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(31, 60, 136, 0.2);
+}
+
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(58, 91, 160, 0.3);
+}
+
+/* Form Footer */
+.form-footer {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #64748B;
+  margin: 0;
+}
+
+.footer-link {
+  color: #1F3C88;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #3A5BA0;
+  text-decoration: underline;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet and Below */
+@media (max-width: 768px) {
+  .registration-container {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .registration-title {
+    font-size: 1.75rem;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    padding-top: 0;
+    text-align: left;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .registration-page {
+    padding: 1rem;
+  }
+
+  .registration-container {
+    padding: 1.5rem;
+  }
+
+  .registration-title {
+    font-size: 1.5rem;
+  }
+
+  .registration-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .submit-button {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY ENHANCEMENTS
+   =================================== */
+
+/* Focus visible for keyboard navigation */
+.form-input:focus-visible,
+.submit-button:focus-visible,
+.footer-link:focus-visible {
+  outline: 2px solid #3A5BA0;
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .registration-container,
+  .form-input,
+  .submit-button,
+  .footer-link {
+    transition: none;
+  }
+}
