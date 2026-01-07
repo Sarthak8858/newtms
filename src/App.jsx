@@ -1,35 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import './App.css';
+
+// Placeholder components for each route
+const Dashboard = () => <div className="page-content"><h1>Dashboard</h1><p>Welcome to the Dashboard</p></div>;
+const Students = () => <div className="page-content"><h1>Students</h1><p>Manage students here</p></div>;
+const Assessments = () => <div className="page-content"><h1>Assessments</h1><p>View and manage assessments</p></div>;
+const Training = () => <div className="page-content"><h1>Training Programs</h1><p>Manage training programs</p></div>;
+const Skills = () => <div className="page-content"><h1>Skills Matrix</h1><p>View skills matrix</p></div>;
+const Reports = () => <div className="page-content"><h1>Reports</h1><p>Generate and view reports</p></div>;
+const Analytics = () => <div className="page-content"><h1>Analytics</h1><p>View analytics dashboard</p></div>;
+const Settings = () => <div className="page-content"><h1>Settings</h1><p>Configure system settings</p></div>;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 1024);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    if (window.innerWidth <= 1024) {
+      setSidebarOpen(false);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="app-container">
+        <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
+        
+        <main className="main-content">
+          {/* Top header with sidebar toggle */}
+          <header className="main-header">
+            <div className="header-left">
+              <button className="sidebar-toggle-open" onClick={toggleSidebar}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              <div className="header-title">
+                <h1>Training Management System</h1>
+              </div>
+            </div>
+            <div className="header-right">
+              <div className="user-profile">
+                <div className="user-avatar">
+                  <span>JD</span>
+                </div>
+                <div className="user-info">
+                  <span className="user-name">John Doe</span>
+                  <span className="user-role">Administrator</span>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          {/* Page content */}
+          <div className="content-wrapper">
+            <Routes>
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/students" element={<Students />} />
+              <Route path="/assessments" element={<Assessments />} />
+              <Route path="/training" element={<Training />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/reports" element={<Reports />} />
+              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </div>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
